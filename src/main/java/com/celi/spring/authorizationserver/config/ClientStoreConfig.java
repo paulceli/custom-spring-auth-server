@@ -30,14 +30,14 @@ public class ClientStoreConfig {
         var registerClient = RegisteredClient
                 .withId(UUID.randomUUID().toString())
                 .clientId("demo-client-pkce")
-                //.clientSecret("{noop}secret") //{noop} for tests
                 .clientAuthenticationMethod(ClientAuthenticationMethod.NONE)
                 .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
                 .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
                 .tokenSettings(TokenSettings.builder().accessTokenFormat(SELF_CONTAINED)
                         .accessTokenTimeToLive(Duration.ofMinutes(15))
                         .authorizationCodeTimeToLive(Duration.ofMinutes(2)).build())
-                .redirectUri("http://localhost:4200/auth/callback")
+                //.redirectUri("http://localhost:4200/auth/callback")
+                .redirectUri("http://localhost:4200?after_login=true")
                 .scopes(scopes -> scopes.addAll(List.of(
                         OidcScopes.OPENID, OidcScopes.PROFILE, OidcScopes.EMAIL, SCOPE_OFFLINE_ACCESS
                 )))
