@@ -8,11 +8,3 @@ logging:
     org.springframework.security: trace
     org.springframework.security.jackson2: INFO
     com.celi.spring.authorizationserver.config : DEBUG
-
-spring:
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          jwk-set-uri: http://localhost:9000/oauth2/jwks
-          issuer-uri: http://localhost:9000
